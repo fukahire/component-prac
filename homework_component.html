@@ -151,6 +151,7 @@
               $.get(api).then(function (response) {
                 vm.data = response;
                 vm.filtercounty = vm.data.records;
+                vm.location = [... new Set(vm.data.records.map(item => item.county))]
               });
 
             },
@@ -178,12 +179,12 @@
                 ;
               },
             },
-            computed:{
-              filtered:function(){
-              let vm = this;
-              return  vm.location = [... new Set(vm.data.records.map(item => item.county))]
-              }
-            }
+            // computed:{
+            //   filtered:function(){
+            //   let vm = this;
+            //   return  vm.location = [... new Set(vm.data.records.map(item => item.county))]
+            //   }
+            // }
           });
         </script>
         <!-- 
