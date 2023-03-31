@@ -69,7 +69,7 @@
         <script type="text/x-template" id="selectortemplate">
           <!-- --- 請選擇城市 --- -->
           <select name="" id="" class="form-control mb-3" v-model="chosencity" @click="change">
-            <option value="none" selected="selected" disabled>請選擇城市</option> 
+            <option value="none" selected="selected">請選擇城市</option> 
             <option :value="item" v-for="(item , index) in city">{{item}}</option>
           </select>
         </script>
@@ -175,6 +175,8 @@
                 let vm  = this;
                 if (chosencity !== 'none') {
                   vm.filtercounty = vm.data.records.filter( item => item.county.match(chosencity) )
+                } else {
+                  vm.filtercounty = vm.data.records
                 }
                 ;
               },
